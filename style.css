@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+html{
+    font-size: 72.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    background-color: dimgrey;
+    text-align: center;
+}
+
+#game{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    margin: 5% auto;
+    border: black solid 5px;
+}
+
+.case{
+    border: solid black 1px;
+    background-color: whitesmoke;
+    width: 33.33%;
+    height: 33.33%;
+    line-height: 140px;
+    font-size: 100px;
+}
+button{
+    font-size: 1.8rem;
+    border-radius: 30%;
+    padding: 1%;
+    margin-top: 1.5%;
+}
+
+h1{
+    background-color: black;
+    color: whitesmoke;
+    padding-top: 4%;
+    padding-bottom:2%;
+    border: solid 1px black;
+
+}
+
+
