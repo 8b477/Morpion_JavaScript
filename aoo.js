@@ -1,4 +1,4 @@
-const statut =document.querySelector('h2');
+const statut = document.querySelector('h2');
 let gameActiv = true;
 let playerActiv = "x";
 let statutGame = ["", "", "", "", "", "", "", "", "",]
@@ -7,8 +7,8 @@ const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
-    [0, 3 ,6],
-    [1, 4 ,7],
+    [0, 3, 6],
+    [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
@@ -25,42 +25,42 @@ statut.innerHTML = turnPlayer();
 document.querySelectorAll(".case").forEach(cell => cell.addEventListener('click', gestionCliclCase));
 document.querySelector("#tryAgain").addEventListener('click', recommencer);
 
-function gestionCliclCase(){
+function gestionCliclCase() {
     //take index of case
     const indexCase = parseInt(this.dataset.index)
 
 
-    if(statutGame[indexCase] !== "" || !gameActiv){
+    if (statutGame[indexCase] !== "" || !gameActiv) {
         return
     }
-    statutGame[indexCase]= playerActiv;
+    statutGame[indexCase] = playerActiv;
     this.innerHTML = playerActiv;
 
     verifGagne()
 }
 
-function  verifGagne(){
+function verifGagne() {
     let turnWin = false;
 
-    for(let conditionVictoire of winConditions){
+    for (let conditionVictoire of winConditions) {
         let val1 = statutGame[conditionVictoire[0]];
         let val2 = statutGame[conditionVictoire[1]];
         let val3 = statutGame[conditionVictoire[2]];
-        if(val1 === "" || val2 === "" || val3 === ""){
+        if (val1 === "" || val2 === "" || val3 === "") {
             continue;
         }
-        if(val1 === val2 && val2 === val3){
+        if (val1 === val2 && val2 === val3) {
             turnWin = true;
             break;
         }
     }
-    if(turnWin){
+    if (turnWin) {
         statut.innerHTML = win();
         gameActiv = false;
         return;
     }
 
-    if(!statutGame.includes("")){
+    if (!statutGame.includes("")) {
         statut.innerHTML = equal();
         gameActiv = false;
         return;
@@ -69,9 +69,9 @@ function  verifGagne(){
     statut.innerHTML = turnPlayer()
 }
 
-function recommencer(){
+function recommencer() {
     playerActiv = "x";
-    gameActiv = true;statutGame
+    gameActiv = true;
     statutGame = ["", "", "", "", "", "", "", "", "",];
     statut.innerHTML = turnPlayer();
     document.querySelectorAll('.case').forEach(cell => cell.innerHTML = "");
